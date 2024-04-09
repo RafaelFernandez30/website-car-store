@@ -1,0 +1,773 @@
+/*<!--Arquivo:TrabDevWeb_RafaelFernandez-->
+<!--Projeto: Site de Aluguel de Carros(NextCar)-->
+<!--Criado por: Rafael Fernandes Fernandez de Oliveira-->
+<!--Data de Criação:07/10/2021-->*/
+
+/* fonte Roboto importada*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* resetando o layout do CSS*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+}
+
+:root{ /*cores salvas*/
+--vermelho: #DA1212;
+--cinza: #C0C0C0;
+--azulTeste: #0000FF;
+--vinho: #920F0F;
+--roxo: #6400A4;
+--roxoescuro: #370259;
+--branco3: #ECD2FF;
+--branco2: #F1EEF3;
+}
+
+html,
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header{
+    width: 100%;
+    height: 200px;
+    background: var(--roxo);
+}
+
+.content{ /*redimencionar o tamanho da página pra celular e pc*/
+    max-width: 1000px;
+    min-width: 200px;
+    margin: 0 auto; /*colocar as coisas no centro*/
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+nav { /*barra de navegação*/
+    width: 100%;
+    height: 125px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand { /*sobre a logo*/
+    font-size: 36px;
+    color: #C0C0C0;
+    cursor: pointer;
+    transition: transform 1.5s;
+}
+.logonew{
+    font-size: 36px;
+    color: #C0C0C0;
+    cursor: pointer;
+    transition: transform 1.5s;
+    text-decoration: none;
+}
+
+
+
+nav ul {
+    display: flex;
+    flex-direction: row; /*linha, na horizontal*/ 
+}
+
+nav ul li { /*lista, intens da barra*/
+    list-style: none; /*sem as bolinhas de lista*/
+    padding: 10px; /*espaçamento dos itens*/
+    cursor: pointer; /*deixar o cursor no modo de seleção*/
+}
+
+nav ul li a{ /* link da lista*/
+    color: #F1EEF3;
+    text-decoration: none; /*tirar o underscore*/
+}
+
+nav ul li a:hover { /*quando o mouse passar por cima do item*/
+    color: #C0C0C069; /*transparência*/
+}
+
+nav ul button{ /*estilo do botão 'login'*/
+    border: 1px solid var(--cinza); /*borda do login*/
+    background: transparent; /*fundo transparente*/
+    padding: 3px 30px; /*tamanho do bloco*/
+    cursor: pointer;
+    margin-left: 20px; /*espaçamento do ultimo item*/
+    color: var(--cinza);
+    font-weight: bold; /* estilo da fonte, nesse caso, usei o bold 'negrito'*/
+    border-radius: 5px; /*arredondamento das bordas*/
+}
+
+nav ul button:hover { /* animação do botão*/
+    transition: all 0.3s;
+    background: var(--roxoescuro);
+    color: white; 
+}
+
+.content .header-block{
+    max-width: 1000px;/*tamanho do quadro principal*/
+    min-width: 300px;
+    height: 450px;
+    background: #ECD2FF;
+    border-radius: 8px;/*curvatura da borda*/
+    box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);/*leve sobreado na borda*/
+    position: relative;
+    z-index: 10;
+    padding: 10px;
+    border: 5px solid var(--roxoescuro);
+
+}
+
+.header-block img{ /*imagem do carro principal*/
+    width: 50%;
+    position: absolute;
+    right: 2%;
+    bottom: 2%;/*descer a imagem*/
+}
+
+.header-block .text { /*dimenssoes do texto*/
+    position: absolute;
+    bottom: 30%;
+    left: 15%;
+}
+
+.header-block .text h2{ /*caracteristicas do titulo principal*/
+    color: var(--roxoescuro);
+    margin-bottom: 20px;
+    text-align: right;
+    transform: translate(-20px);
+    transition: transform 1.5s;
+}
+
+.header-block .text p { /*caracteristicas do subtitulo*/
+    max-width: 280px;
+    color: var(--roxo);
+    text-align: right; 
+    transform: translateX(-20px);
+    transition: transform 1.4s;
+}
+
+ /*catálogo dos carros iniciais*/
+ section .catalog{
+     width: 80vw;
+     padding: 80px;
+ }
+
+ section .filter-card{ /* campo de busca dos carros*/
+    width: 980px;
+    height: 150px;
+    background: var(--cinza);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .search-input{
+     width: 700px;
+     height: 50px;
+     border: none;
+     border-radius: 4px 0px 0px 4px; /*borda no campo:esquerda cima, direita cima, direita baixo, esqueda baixo*/
+     text-indent: 10px; /*espaçamento do texto da borda*/
+ }
+
+ .search-button{ /*botão de Busca*/
+    width: 150px;
+    height: 50px;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    background: var(--roxo);
+    color: var(--branco2);
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s ease;   
+ }
+
+ .search-button:hover{ /*estilo do botão*/
+     background: grey;
+     color: var(--roxo);
+ }
+
+ .title-wrapper-catalog {
+     text-decoration:none;
+     margin-top: 140px;
+     padding-bottom: 20px; 
+     text-align: center;  
+ }
+
+ section .card-wrapper{ /*organização do catalogo*/
+    max-width: 1000px;
+    height: 100%;
+    display: grid; /*distribuição dos elementos*/
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /*caracteristicas da imagem*/
+    grid-gap: 85px; /*espaçamento entre as imagens*/
+    padding-top: 50px;
+ }
+
+ section .card-wrapper-catalog{ /*organização do catalogo*/
+    max-width: 1000px;
+    height: 100%;
+    display: grid; /*distribuição dos elementos*/
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /*caracteristicas da imagem*/
+    grid-gap: 85px; /*espaçamento entre as imagens*/
+    padding-top: 50px;
+ }
+/*aba catalogo*/
+ .title-wrapper-catalog1 p{
+    text-decoration:none;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    text-align: center; 
+    font-size: 45px; 
+    font-weight: bold;
+    color: var(--roxoescuro);
+}
+
+.title-wrapper-catalog1 h3{
+    text-decoration:none;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: normal;
+    color: var(--roxoescuro);
+}
+
+section .card-item{ /*fundo do catalogo imagens*/
+    height: 400px;
+    width: 300px;
+    background: var(--branco2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-content{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--roxoescuro);
+}
+
+.card-item img { /*tamanho geral*/
+    width: 85%;
+}
+
+.card-item h3{
+    width: 50%;
+    text-align: center;
+    margin-top: 5%;
+
+}
+
+.card-item p{
+    width: 90%;
+    font-style: italic;
+    color: black
+}
+
+
+
+
+.card-item button{
+    width: 90%;
+    padding: 10px 0px;
+    border: none;
+    background: var(--roxo);
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.card-item button:hover{ /*fundo*/
+    background: var(--cinza);
+    color: var(--roxoescuro);
+}
+section .filter-card1{ /* campo de busca dos carros*/
+    width: 980px;
+    height: 150px;
+    background: var(--cinza);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .search-input1{
+     width: 700px;
+     height: 50px;
+     border: none;
+     border-radius: 4px 0px 0px 4px; /*borda no campo:esquerda cima, direita cima, direita baixo, esqueda baixo*/
+     text-indent: 10px; /*espaçamento do texto da borda*/
+ }
+
+ .search-button1{ /*botão de Busca*/
+    width: 150px;
+    height: 50px;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    background: var(--roxo);
+    color: var(--branco2);
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s ease;   
+ }
+
+ .search-button1:hover{ /*estilo do botão*/
+     background: grey;
+     color: var(--roxo);
+ }
+
+ .title-wrapper-catalog p{
+    text-decoration:none;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-align: center; 
+    font-size: 30px; 
+    font-weight: bold;
+    color: var(--roxoescuro);
+}
+
+.title-wrapper-catalog h3{
+    text-decoration:none;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: normal;
+    color: var(--roxoescuro);
+}
+
+/*design 'Sobre Nós'*/
+
+.sobre {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10px;
+}
+
+.sobre-content{
+    max-width: 1000px;
+    min-height: 300px;
+    height: 600px;
+    background: var(--branco2);
+    margin: 0 auto;
+    border-radius: 8px;
+    z-index: 10;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left{
+    width: 25%;
+    min-width: 300px;
+    height: 100%;
+    background: var(--roxo);
+    border-radius: 8px;
+}
+
+.rigth{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 10%;
+}
+
+.rigth h3{
+    text-align: right;
+    width: 90%;
+    margin-top: 20px;
+    color: var(--roxo);
+}
+
+.rigth p{
+    max-width: 90%;
+    font-size: 1em; /*1 em = 16 px*/
+    letter-spacing: 2px;
+    text-align: justify;
+    color: var(--roxoescuro);
+}
+
+/*Vantagens*/
+
+.vantagens {
+    width: 100%;
+    height: 100%;
+    background: var(--branco2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0px;
+}
+
+.title-wrapper-vantagens {
+    padding: 20px 0px;
+    color: var(--roxoescuro);
+    text-align: center;
+}
+
+.title-wrapper-vantagens p{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.title-wrapper-vantagen h3{
+    font-size: 20px;
+}
+
+.vantagens-card-block{
+    max-width: 1000px;
+    min-width: 300px;
+    height: 600px;
+    background: white;
+    margin: 0 auto;
+    border-radius: 8px;
+    z-index: 10; /*nada na frete do card*/
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    grid-gap: 30px;
+}
+
+.vantagens-card-item{
+    max-width: 420px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #dedede3b;
+    border-radius: 4px;
+}
+
+.vantagens-text-content {
+    max-width: 60%;
+    margin: 5px;
+}
+
+.vantagens-card-item img{
+    width: 64px;
+    height: 64px;
+}
+
+/*rodapé*/
+
+footer {
+    width: 100%;
+    height: 250px;
+}
+
+footer .main {
+    width: 100%;
+    height: 200px;
+    background: var(--roxo);
+    padding: 20px 10px;
+}
+
+.footer-links{
+    max-width: 1000px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-company, .footer-aluguel, .footer-redesocial, .footer-contato{
+    color: white;
+    height: 100%;
+    min-width: 100px;
+}
+
+.footer-links h4{
+    margin-bottom: 10px;
+}
+
+.footer-links h6{
+    margin-bottom: 8px;
+}
+
+.main .footer-redesocial img{
+    width: 32px;
+    height: 32px;
+}
+
+footer .final{
+    width: 100%;
+    height: 50px;
+    background: var(--roxoescuro);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Crie o cadastro*/
+/* # para o id, '.' para classes*/
+
+#tituloform{
+    color: var(--roxoescuro);
+    margin-left: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+#subtitform{
+    color: var(--roxoescuro);
+    margin-left: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+fieldset{
+    border: 0;
+}
+
+.formgeral{
+    background-color: white;
+    font-size: 20px;
+    color: var(--roxoescuro);
+    margin-left: 42%;
+    margin-top: 2%;
+    justify-content: center;
+    padding: 2em;
+}
+
+
+input, select, .botaosalvar{
+    border-radius: 4px;
+}
+
+.campoform{
+    margin-bottom: 2em;
+    margin-left: 8%;
+    margin-top: 2%;
+    justify-content: center;
+    display: inline;
+    
+    
+}
+
+.campoform label{
+    margin-bottom: 0.2em;
+    color: var(--roxoescuro);
+    display: block;
+    padding: 5px;
+    
+}
+/*
+fieldset.campoform .grupoform{
+    float: left;
+    margin-right: 1em;
+   
+}*/
+
+.campoform input[type="text"], .campoform input[type="email"], .campoform input[type="number"] .campoform input[type="password"], .campoform select{
+    padding: 0.2em;
+    border: 1px solid var(--roxoescuro);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.campoform select option{
+    padding-right: 1em;
+}
+
+.campoform input:focus, .campoform select:focus{
+    background: var(--branco2);
+}
+
+.botaosalvar{
+    width: 150px;
+    height: 50px;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    background: var(--roxo);
+    color: var(--branco2);
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s ease; 
+}
+
+.botaosalvar:hover{
+    background: grey;
+    color: var(--roxo);
+}
+
+/*data*/
+ #date{
+    width: 150px;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+    background: var(--cinza);
+    color: black;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s ease; 
+ }
+
+ .datacatalog{ 
+    width: 89%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+   
+ }
+
+ #localreti{
+     padding: 10px;
+ }
+
+#timecatalog{
+    width: 150px;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+    background: var(--cinza);
+    color: black;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s ease;
+     
+}
+
+.datecatalog h4{
+    padding-left: 10px;
+}
+
+
+/*login novo*/
+
+.card{
+    box-shadow: 1px 1px 5px #C0C0C0;
+    background-color: var(--branco2);
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.formnovo{
+    width: 600px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.card-top{
+    text-align: center;
+}
+
+.imglogin{
+    width: 100px;
+}
+
+.tituloform{
+    color: var(--roxoescuro);
+}
+
+.card-grupo label{
+  width: 100%;
+  color: rgb(75, 75, 75);  
+  display: block;
+  font-size: 20px;
+}
+
+.card-grupo input{
+    border-radius: 5px;
+    outline: 0;
+    width: 100%;
+    height: 35px;
+    padding: 5px;
+}
+
+.card-grupo{
+    margin-bottom: 10px;
+}
+
+.card-grupo button{
+    background-color: var(--roxoescuro);
+    width: 100%;
+    border-radius: 30px;
+    padding: 15px;
+    color: white;
+    border: 0px;
+    outline: 0;
+    cursor: pointer;
+    transition: transform 1.5s;
+}
+
+.cadastro h3{
+    text-decoration: none;
+}
+
+.catalogo-index button{
+    background-color: var(--roxoescuro);
+    width: 400px;
+    border-radius: 30px;
+    padding: 15px;
+    color: white;
+    border: 0px;
+    outline: 0;
+    cursor: pointer;
+    transition: transform 1.5s;
+    font-size: 19px;
+    margin-bottom: 2em;
+    margin-left: 37%;
+    margin-top: 2%;
+    justify-content: center;
+    display: inline;
+    text-decoration: none;
+}
+
+.mapa iframe{
+    margin-left: 30%;
+    margin-top: 2%;
+    max-width: 1000px;/*tamanho do quadro principal*/
+    min-width: 300px;
+    height: 450px;
+    background: var(--roxoescuro);
+    border-radius: 8px;/*curvatura da borda*/
+    box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);/*leve sobreado na borda*/
+    position: relative;
+    z-index: 10;
+    padding: 10px;
+    border: 5px solid var(--roxoescuro);
+    margin-bottom: 3%;
+}
+
+.mapa h2{
+    font-size: 36px;
+    text-align: center;
+    margin-top: 3%;
+    color: var(--roxoescuro);
+    
+}
+
